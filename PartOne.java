@@ -13,6 +13,7 @@ public class PartOne {
         Scanner sc = new Scanner(System.in);
         while (true){
             userInput = sc.nextInt();
+            userInput = numCheck(userInput);
             if(userInput == 8){
                 userInput = sc.nextInt();
                 if(userInput == 3){
@@ -23,11 +24,11 @@ public class PartOne {
                             userInput = sc.nextInt();
                             if(userInput == 3){
                                 userInput = sc.nextInt();
-                                if(userInput == 1 && status == false){
+                                if(userInput == 1){
                                     System.out.println("Unlocked");
                                     status = true;
                                     }    
-                                if(userInput == 4 && status == true){
+                                if(userInput == 4){
                                     System.out.println("Locked");
                                     status = false;
                                 }    
@@ -37,6 +38,18 @@ public class PartOne {
                 }
             }
         } 
+    }
+
+    public static int numCheck(int a){
+        if (a < 0){
+            return 0 - a;
+        }
+        if (a > 9){
+            return 1;
+        }
+        else{
+            return a;
+        }
     }
 }
 

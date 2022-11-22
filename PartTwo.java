@@ -8,57 +8,54 @@ public class PartTwo {
 	
 	    public static boolean status = false;
 	    public static int userInput = 0;
-	    public static int count = 0;
+		
 	// Unlocking code: 837131
 	// Locking code: 837134
-
 	    public static void main(String[] args) {
-	        Random random = new Random();
-	        while (true){
-	           
-	            System.out.println("Enter a number:");
-	            userInput = random.nextInt(10);
-	            System.out.println(userInput);
+			int count = 0;
+	        while (status == false){
+				Random random = new Random();
+	            userInput = numCheck(random.nextInt(10));
 	            if(userInput == 8){
-	                count++;
-	                System.out.println("Enter a number:");
-	                userInput = random.nextInt();
-	                System.out.println(userInput);
+	                userInput = numCheck(random.nextInt(10));       
 	                if(userInput == 3){
 	                    count++;
-	                    System.out.println("Enter a number:");
-	                    userInput = random.nextInt();
-	                    System.out.println(userInput);
+	                    userInput = numCheck(random.nextInt(10));                    
 	                    if(userInput == 7){
 	                        count++;
-	                        System.out.println("Enter a number:");
-	                        userInput = random.nextInt();
-	                        System.out.println(userInput);
+	                        userInput = numCheck(random.nextInt(10));                        
 	                        if(userInput == 1){
 	                            count++;
-	                            System.out.println("Enter a number:");
-	                            userInput = random.nextInt();
-	                            System.out.println(userInput);
+	                            userInput = numCheck(random.nextInt(10));
 	                            if(userInput == 3){
 	                                count++;
-	                                System.out.println("Enter a number:");
-	                                userInput = random.nextInt();
-	                                System.out.println(userInput);
-	                                if(userInput == 1 && status == false){
+	                                userInput = numCheck(random.nextInt(10));
+	                                if(userInput == 1){
 	                                    count++;
 	                                    System.out.println("Unlocked");
-	                                    System.out.println("Count: " + count);
 	                                    status = true;
-	                                    break;
 	                                    }        
 	                            }
 	                        }
 	                    }
 	                }
 	            }
-	            else{
-	                count++;
-	            }
+				else{
+					count++;
+				}
 	        } 
+			System.out.println("Count: " + count);
 	    }
+
+		public static int numCheck(int a){
+			if (a < 0){
+				return 0 - a;
+			}
+			if (a > 9){
+				return 2;
+			}
+			else{
+				return a;
+			}
+		}
 	}
